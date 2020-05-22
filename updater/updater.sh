@@ -12,7 +12,7 @@ REMOTE="https://github.com/DerpLab" # URL to the remote git
 BRANCH="master" # Default branch name
 DEVICE=$(basename $OUT) # Device name
 ZIP_PATH=$(find $OUT -maxdepth 1 -type f -name "Derp*.zip" | sed -n -e "1{p;q}")
-ZIP=$(basname $ZIP_PATH)
+ZIP=$(basename $ZIP_PATH)
 DATE=$(echo $ZIP | sed -n -e "s/^.*${DEVICE}-//p")
 DATE="${DATE:0:4}-${DATE:3:2}-${DATE:5:2}"
 
