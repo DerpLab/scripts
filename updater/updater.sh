@@ -14,8 +14,7 @@ DEVICE=$(basename $OUT) # Device name
 ZIP_PATH=$(find $OUT -maxdepth 1 -type f -name "Derp*.zip" | sed -n -e "1{p;q}")
 ZIP=$(basename $ZIP_PATH)
 DATE=$(echo $ZIP | sed -n -e "s/^.*${DEVICE}-//p")
-DATE="${DATE:0:4}-${DATE:3:2}-${DATE:5:2}"
-
+DATE="${DATE:0:4}-${DATE:4:2}-${DATE:6:2}"
 # Upload build to SourceForge
 echo -n "Upload ${ZIP} to SourceForge ? y/[n] > "
 read ans
