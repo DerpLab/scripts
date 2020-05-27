@@ -13,8 +13,6 @@ BRANCH="master" # Default branch name
 DEVICE=$(basename $OUT) # Device name
 ZIP_PATH=$(find $OUT -maxdepth 1 -type f -name "Derp*.zip" | sed -n -e "1{p;q}")
 ZIP=$(basename $ZIP_PATH)
-DATE=$(echo $ZIP | sed -n -e "s/^.*${DEVICE}-//p")
-DATE="${DATE:0:4}-${DATE:4:2}-${DATE:6:2}"
 # Upload build to SourceForge
 echo -n "Upload ${ZIP} to SourceForge ? y/[n] > "
 read ans
@@ -52,7 +50,7 @@ cp "${OUT}/${DEVICE}.json" ./
 cp "${OUT}/Changelog.txt" ./
 cd ..
 git add .
-git commit -m "${DEVICE}: ${DATE} update"
+git commit -m "${DEVICE}: $(date -d "$D" '+%Y')-$(date -d "$D" '+%m')-$(date -d "$D" '+%d') update"
 
 # Pushing changes
 echo
