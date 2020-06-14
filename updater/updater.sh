@@ -29,7 +29,7 @@ if [[ $ans == 'y' ]]; then
     echo -n "Enter SourceForge username: "
     read userName
     echo "Uploading build"
-    scp $ZIP_PATH "${userNae}@frs.sourceforge.net":"/home/frs/p/derpfest/${DEVICE}"
+    scp $ZIP_PATH "${userName}@frs.sourceforge.net":"/home/frs/p/derpfest/${DEVICE}"
     echo "Uploading md5sum"
     scp "${ZIP_PATH}.md5sum" "${userName}@frs.sourceforge.net":"/home/frs/p/derpfest/${DEVICE}"
   fi
